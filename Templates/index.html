@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Latest Mars Information</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <style>
+    .hemititle {
+
+      color: sienna;
+      font-size: 20px;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+
+    h3 {
+      color: sienna;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+
+    h4 {
+      color: sienna;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      font-style: bold;
+    }
+
+    h6 {
+      color: brown;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      font-style: italic;
+    }
+  </style>
+
+
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="jumbotron text-center">
+      <h2 text-align="center">Mars Information</h2>
+      <p text-align="center"><a class="btn btn-primary btn-lg" href="/scrape" role="button">Find latest Information
+          about Mars!</a></p>
+    </div>
+
+
+    <div class="container-fluid">
+      <p>{{mars.mars_info}}</p>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-8">
+          <h3>Latest Mars Image</h3>
+          <img src="{{ mars.mars_image}}" alt="Latest Pic" style="width:100%;">
+        </div>
+
+        <div class="col-md-4">
+
+          <ul>
+            <h4>Latest Weather Tweet</h4>
+            <h6>{{mars.mars_weather}}</h6>
+          </ul>
+          <ul>
+            <h4>Some Facts about Mars</h4>
+            {{mars.mars_facts|safe}}
+            <a href="{{mars.mars_facts}}"></a>
+          </ul>
+
+        </div>
+
+
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <h3 align="center">Mars Hemispheres</h3>
+      <div class="body">
+        <div class="row">
+          <div class="col-md-6">
+            <img src="{{mars.mars_hemispheres[0]['URL']}}" alt="Cerberus" style="width:100%;">
+            <div class="hemititle">
+              {{mars.mars_hemispheres[0]['title']}}
+            </div>
+          </div>
+          <div class="col-md-6">
+            <img src="{{mars.mars_hemispheres[1]['URL']}}" alt="Schiaperelli" style="width:100%;">
+            <div class="hemititle">
+              {{mars.mars_hemispheres[1]['title']}}
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <img src="{{mars.mars_hemispheres[2]['URL']}}" alt="Syrtis Major" style="width:100%;">
+            <div class="hemititle">
+              {{mars.mars_hemispheres[2]['title']}}
+            </div>
+          </div>
+          <div class="col-md-6">
+            <img src="{{mars.mars_hemispheres[3]['URL']}}" alt="Valles Marineris" style="width:100%;">
+            <div class="hemititle">
+              {{mars.mars_hemispheres[3]['title']}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</body>
+
+</html>
